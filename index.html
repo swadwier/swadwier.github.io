@@ -8,53 +8,48 @@
     <title>Document</title>
 </head>
 <body class="bg-gradient-to-r from-slate-100 to-green-600 dark:from-slate-950 dark:to-green-600 has-[:checked]:overflow-hidden">
-<header class="peer/header header top-0 peer w-screen backdrop-blur-xl has-[:checked]:backdrop-blur-none transition-all duration-200 z-40">
+<header class="header top-0 left-0 w-full backdrop-blur-xl transition-all duration-200 z-40">
   <div class="container mx-auto py-2">
-    <div class="flex flex-col md:flex-row justify-between">
-      <div class="w-20 max-w-none flex"><img class="w-20 max-w-none self-center"src="/img/VPNchik.png" alt="logo"></div>
-  
-      <nav class="menu mt-4 mb-4 md:mt-0 md:mb-0 md:self-center">
-          <ul class="flex md:flex-row flex-col space-y-2 md:space-y-0 md:space-x-6">
-            <li>
-                <label class="peer group md:hidden flex flex-col w-fit gap-[16px] cursor-pointer relative z-30">
-                  <input type="checkbox" class="hidden">
-                  <span class="group-has-[:checked]:-rotate-45 origin-top-right block dark:bg-stone-50 bg-slate-950 h-[2px] w-[50px] transition-all duration-300"></span>
-                  <span class="group-has-[:checked]:opacity-0 block dark:bg-stone-50 bg-slate-950 h-[2px] w-[50px] opacity-100 transition-all duration-300"></span>
-                  <span class="group-has-[:checked]:rotate-45 origin-bottom-right block dark:bg-stone-50 bg-slate-950 h-[2px] w-[50px] transition-all duration-300"></span>
-              </label>
-              <div class="fixed peer-has-[:checked]:right-[0%] peer-has-[:checked]:is-active right-[100vw] top-0 transition-all w-screen h-screen z-20 bg-neutral-800/60 flex flex-col justify-center">
-                  <div class="flex flex-col justify-center items-center h-[90%] ">
-                      <div class="flex flex-col justify-between items-center h-[90%] ">
-                          <a href="#" class="text-3xl text-white">Главная</a>
-                          <a href="#" class="text-3xl text-white">Uk</a>
-                          <a href="#" class="text-3xl text-white">About</a>
-                          <a href="#" class="text-3xl text-white">Services</a>
-                          <a href="#" class="text-3xl text-white">Contact</a>
-                          <a href="#" class="xs:hidden text-3xl px-4 py-3 rounded-xl text-green-200 dark:text-green-600 border-green-600 font-bold">DOWNLOAD</a>
-                      </div>
-                  </div>
-              </div>
-            </li>
-            <li>
-              <a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-200 transition hidden md:block">Uk</a>
-            </li>
-            <li>
-              <a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-200 transition hidden md:block">About</a>
-            </li>
-            <li>
-              <a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-200 transition hidden md:block">Services</a>
-            </li>
-            <li>
-              <a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-200 transition hidden md:block">Contact</a>
-            </li>
-          </ul>
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="w-20 flex-shrink-0 flex">
+        <img class="w-20 self-center" src="/img/VPNchik.png" alt="logo">
+      </div>
+
+      <!-- Burger Menu (Mobile) -->
+      <input id="burger-toggle" type="checkbox" class="peer hidden" />
+      <label for="burger-toggle" class="md:hidden z-50 cursor-pointer flex flex-col gap-[8px] w-10 h-10 justify-center items-end relative">
+        <span class="block h-[3px] w-8 bg-slate-950 dark:bg-stone-50 rounded transition-all duration-300 peer-checked:rotate-45 peer-checked:translate-y-[10px]"></span>
+        <span class="block h-[3px] w-6 bg-slate-950 dark:bg-stone-50 rounded transition-all duration-300 peer-checked:opacity-0"></span>
+        <span class="block h-[3px] w-8 bg-slate-950 dark:bg-stone-50 rounded transition-all duration-300 peer-checked:-rotate-45 peer-checked:-translate-y-[10px]"></span>
+      </label>
+
+      <!-- Main nav (desktop) -->
+      <nav class="hidden md:block">
+        <ul class="flex flex-row space-x-6 items-center">
+          <li><a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-400 transition">Uk</a></li>
+          <li><a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-400 transition">About</a></li>
+          <li><a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-400 transition">Services</a></li>
+          <li><a href="#" class="text-slate-950 dark:text-white text-lg hover:text-green-400 transition">Contact</a></li>
+          <li><a href="#" class="ml-4 px-4 py-2 rounded-xl bg-green-500 hover:bg-green-700 text-white font-bold transition">DOWNLOAD</a></li>
+        </ul>
+      </nav>
+
+      <!-- Burger Menu Overlay (Mobile) -->
+      <div class="fixed inset-0 bg-neutral-900/70 backdrop-blur-xl z-40 flex items-center justify-center 
+                  translate-x-full peer-checked:translate-x-0 transition-transform duration-300 md:hidden pointer-events-none peer-checked:pointer-events-auto">
+        <nav class="bg-neutral-950/90 dark:bg-neutral-800/90 rounded-xl px-10 py-12 shadow-xl flex flex-col items-center gap-8 w-[90vw] max-w-md pointer-events-auto animate-fade-in-up">
+          <a href="#" class="text-3xl text-white hover:text-green-400 transition">Главная</a>
+          <a href="#" class="text-3xl text-white hover:text-green-400 transition">Uk</a>
+          <a href="#" class="text-3xl text-white hover:text-green-400 transition">About</a>
+          <a href="#" class="text-3xl text-white hover:text-green-400 transition">Services</a>
+          <a href="#" class="text-3xl text-white hover:text-green-400 transition">Contact</a>
+          <a href="#" class="text-3xl text-green-200 bg-green-800/20 px-4 py-3 rounded-xl font-bold border border-green-600 hover:bg-green-700/50 transition mt-4">DOWNLOAD</a>
         </nav>
-    
-  
-      <div><a href="#" class="text-green-100 text-lg hover:text-slate-950 transition hidden md:block font-bold">DOWNLOAD</a></div>
-  </div>
+      </div>
+    </div>
   </div>
 </header>
+
 
 <main class="main container mx-auto  py-4 blur-none peer-has-[:checked]/header:blur-md transition-all duration-200">
   <div class="relative">
